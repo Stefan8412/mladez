@@ -27,12 +27,18 @@ export async function addEvent(event: {
   return docRef.id;
 }
 
-export async function getEvents() {
+// Get all events
+export async function getEvents(): Promise<Event[]> {
   const snapshot = await getDocs(collection(db, "events"));
-  return snapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(), // this spreads all fields like title, description, date, etc.
-  }));
+  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as Event[];
+}
+
+// Get a single event by ID
+export async function getEventById(id: string): Promise<Event | null> {
+  const docRef = doc(db, "events", id);
+  const docSnap = await getDoc(docRef);
+  if (!docSnap.exists()) return null;
+  return { id: docSnap.id, ...docSnap.data() } as Event;
 }
 
 export async function addOrganization(org: {

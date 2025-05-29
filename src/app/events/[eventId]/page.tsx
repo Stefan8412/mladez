@@ -1,20 +1,18 @@
-// app/events/[eventId]/page.tsx
-import { getEvents, Event } from "@/app/lib/firestore";
+import { getEventById, Event } from "@/app/lib/firestore";
 
 type PageProps = {
   params: { eventId: string };
 };
 
 export default async function EventDetailPage({ params }: PageProps) {
-  const events: Event[] = await getEvents();
-  const event = events.find((e) => e.id === params.eventId);
+  const event: Event | null = await getEventById(params.eventId);
 
   if (!event) return <p className="p-4">Event not found</p>;
 
   const eventDate =
     event.date instanceof Date
       ? event.date
-      : new Date(event.date?.seconds * 1000);
+      : new Date(event.date.seconds * 1000);
 
   return (
     <main className="p-4 max-w-2xl mx-auto">
