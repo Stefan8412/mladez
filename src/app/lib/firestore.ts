@@ -22,7 +22,10 @@ export async function addEvent(event: {
 
 export async function getEvents() {
   const snapshot = await getDocs(collection(db, "events"));
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(), // this spreads all fields like title, description, date, etc.
+  }));
 }
 
 export async function addOrganization(org: {
