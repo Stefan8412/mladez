@@ -8,6 +8,13 @@ import {
   Timestamp,
 } from "firebase/firestore";
 
+export type Event = {
+  id: string;
+  title: string;
+  description: string;
+  date: any; // could refine to Firestore Timestamp if needed
+};
+
 export async function addEvent(event: {
   title: string;
   date: string;

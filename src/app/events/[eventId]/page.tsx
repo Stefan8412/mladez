@@ -1,17 +1,11 @@
+// app/events/[eventId]/page.tsx
 import { getEvents, Event } from "@/app/lib/firestore";
-import { type Metadata } from "next";
 
-type Props = {
+type PageProps = {
   params: { eventId: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return {
-    title: `Event ${params.eventId}`,
-  };
-}
-
-export default async function EventDetailPage({ params }: Props) {
+export default async function EventDetailPage({ params }: PageProps) {
   const events: Event[] = await getEvents();
   const event = events.find((e) => e.id === params.eventId);
 
@@ -20,7 +14,7 @@ export default async function EventDetailPage({ params }: Props) {
   const eventDate =
     event.date instanceof Date
       ? event.date
-      : new Date(event.date.seconds * 1000);
+      : new Date(event.date?.seconds * 1000);
 
   return (
     <main className="p-4 max-w-2xl mx-auto">
