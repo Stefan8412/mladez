@@ -6,11 +6,7 @@ type PageProps = {
   };
 };
 
-export default async function EventDetailPage({
-  params,
-}: {
-  params: { eventId: string };
-}) {
+export default async function EventDetailPage({ params }: PageProps) {
   const events: Event[] = await getEvents();
   const event = events.find((e) => e.id === params.eventId);
 
