@@ -1,10 +1,17 @@
 import { getEvents, Event } from "@/app/lib/firestore";
+import { type Metadata } from "next";
 
-export default async function EventDetailPage({
-  params,
-}: {
+type Props = {
   params: { eventId: string };
-}) {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    title: `Event ${params.eventId}`,
+  };
+}
+
+export default async function EventDetailPage({ params }: Props) {
   const events: Event[] = await getEvents();
   const event = events.find((e) => e.id === params.eventId);
 
