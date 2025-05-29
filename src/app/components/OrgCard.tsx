@@ -15,7 +15,7 @@ export default function OrganizationCard({
 }: OrganizationCardProps) {
   return (
     <div className="border rounded-xl p-4 shadow-sm hover:shadow-md transition">
-      <h3 className="text-xl font-semibold">{name}</h3>
+      <h3 className="text-xl font-s text-purple-800">{name}</h3>
       <p className="text-gray-700 mb-2">{description}</p>
       <a
         href={website}

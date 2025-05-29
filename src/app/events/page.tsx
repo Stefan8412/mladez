@@ -10,14 +10,16 @@ export default async function EventsPage() {
       <ul className="space-y-4">
         {events.map((event: any) => (
           <li key={event.id} className="border p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">{event.title}</h2>
+            <h2 className="text-xl font-semibold text-purple-800">
+              {event.title}
+            </h2>
             <p className="text-gray-600">
               {new Date(event.date.seconds * 1000).toLocaleDateString()}
             </p>
             <p className="text-gray-700">{event.description}</p>
             <Link
               href={`/events/${event.id}`}
-              className="text-blue-600 underline block mt-2"
+              className="animate-pulse focus:animate-none hover:animate-none inline-flex text-md font-medium bg-indigo-900 mt-3 px-4 py-2 rounded-lg tracking-wide text-white"
             >
               Zobraziť
             </Link>

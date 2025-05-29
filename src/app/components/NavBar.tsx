@@ -17,8 +17,8 @@ export default function NavBar() {
           <Image
             src="/skolstvo-logo-05.svg" // Place your logo image in /public/logo.png
             alt="Mládež PSK logo"
-            width={80}
-            height={80}
+            width={100}
+            height={100}
           />
           {/* <span className="text-xl font-bold text-purple-900">Mládež PSK</span> */}
         </Link>
