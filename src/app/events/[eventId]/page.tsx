@@ -1,5 +1,11 @@
 import { getEvents, Event } from "@/app/lib/firestore";
 
+type PageProps = {
+  params: {
+    eventId: string;
+  };
+};
+
 export default async function EventDetailPage({
   params,
 }: {
