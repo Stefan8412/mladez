@@ -50,7 +50,7 @@ export default function HomePage() {
         <input
           type="text"
           placeholder="vyhľadaj podujatie..."
-          className="border border-purple-300 rounded p-3 w-full shadow-sm"
+          className="border border-purple-300 rounded p-3 w-full shadow-sm text-gray-700"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

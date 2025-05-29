@@ -20,15 +20,15 @@ export default function OrganizationsPage() {
   return (
     <main className="p-4 max-w-4xl mx-auto ">
       <h1 className="text-3xl font-bold mb-6 text-purple-800">Organizácie</h1>
-
-      <input
-        type="text"
-        placeholder="Search organizations..."
-        className="mb-4 p-2 border rounded w-full"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-
+      <section className="mb-10 max-w-2xl mx-auto">
+        <input
+          type="text"
+          placeholder="vyhľadaj organizáciu..."
+          className="mb-4 p-2 border rounded w-full"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </section>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filteredOrgs.map((org: any) => (
           <div key={org.id} className="border p-4 rounded shadow">
