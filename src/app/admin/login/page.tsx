@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <main className="p-4 max-w-sm mx-auto bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100">
+    <main className="p-4 max-w-sm mx-auto ">
       <h1 className="text-2xl font-bold mb-4">Admin Login</h1>
       <form onSubmit={handleLogin} className="space-y-4">
         <input

@@ -31,23 +31,7 @@ export default function HomePage() {
   }, [searchTerm, events]);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 p-6">
-      {/* Navigation */}
-      <nav className="flex justify-center space-x-8 mb-10 text-lg font-semibold text-purple-800">
-        <Link href="/events" className="hover:text-blue-600 transition">
-          Podujatia
-        </Link>
-        <Link href="/organizations" className="hover:text-blue-600 transition">
-          Organizácie
-        </Link>
-        <Link
-          href="/admin/dashboard"
-          className="hover:text-blue-600 transition"
-        >
-          Admin
-        </Link>
-      </nav>
-
+    <main className="min-h-screen p-6">
       {/* Header */}
       <motion.div
         className="text-center mb-10"
