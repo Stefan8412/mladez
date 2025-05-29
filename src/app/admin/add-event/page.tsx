@@ -12,7 +12,7 @@ export default function AddEventPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await addEvent({ title, description, date: new Date(date) });
+    await addEvent({ title, description, date: new Date(date).toISOString() });
     router.push("/events");
   };
 

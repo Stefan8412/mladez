@@ -1,25 +1,9 @@
 import { getOrganizationById } from "@/app/lib/firestore";
-import { notFound } from "next/navigation";
 
-interface Organization {
-  id: string;
-  name: string;
-  description: string;
-  website: string;
-}
-
-interface Params {
-  params: {
-    orgId: string;
-  };
-}
-
-export default async function OrganizationDetailPage({ params }: Params) {
+export default async function OrganizationDetailPage({ params }: any) {
   const org = await getOrganizationById(params.orgId);
 
-  if (!org) {
-    notFound(); // this shows the 404 page
-  }
+  if (!org) return <p className="p-4">Organization not found</p>;
 
   return (
     <main className="p-4 max-w-2xl mx-auto">
@@ -31,7 +15,7 @@ export default async function OrganizationDetailPage({ params }: Params) {
         rel="noopener noreferrer"
         className="text-blue-600 underline"
       >
-        Navšív web
+        Visit Website
       </a>
     </main>
   );
