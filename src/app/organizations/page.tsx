@@ -24,7 +24,7 @@ export default function OrganizationsPage() {
         <input
           type="text"
           placeholder="vyhľadaj organizáciu..."
-          className="mb-4 p-2 border rounded w-full"
+          className="mb-4 p-2 border rounded w-full text-gray-700"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
