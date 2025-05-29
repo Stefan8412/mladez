@@ -1,25 +1,118 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+import { getEvents } from "./lib/firestore";
+import EventCard from "./components/EventCard";
+
+export default function HomePage() {
+  const [events, setEvents] = useState<any[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredEvents, setFilteredEvents] = useState<any[]>([]);
+
+  useEffect(() => {
+    getEvents().then((data) => {
+      setEvents(data);
+      setFilteredEvents(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    const term = searchTerm.toLowerCase();
+    setFilteredEvents(
+      events.filter(
+        (event) =>
+          event.title.toLowerCase().includes(term) ||
+          event.description.toLowerCase().includes(term)
+      )
+    );
+  }, [searchTerm, events]);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/skolstvo-logo-05.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 p-6">
+      {/* Navigation */}
+      <nav className="flex justify-center space-x-8 mb-10 text-lg font-semibold text-purple-800">
+        <Link href="/events" className="hover:text-blue-600 transition">
+          Podujatia
+        </Link>
+        <Link href="/organizations" className="hover:text-blue-600 transition">
+          Organizácie
+        </Link>
+        <Link
+          href="/admin/dashboard"
+          className="hover:text-blue-600 transition"
+        >
+          Admin
+        </Link>
+      </nav>
+
+      {/* Header */}
+      <motion.div
+        className="text-center mb-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h1 className="text-4xl sm:text-5xl font-bold text-purple-900 mb-2">
+          Mládež PSK - na webe sa pracuje
+        </h1>
+        <p className="text-lg text-gray-700">objav udalosť v tvojom okolí...</p>
+      </motion.div>
+
+      {/* Search and Filter */}
+      <section className="mb-10 max-w-2xl mx-auto">
+        <input
+          type="text"
+          placeholder="vyhľadaj podujatie..."
+          className="border border-purple-300 rounded p-3 w-full shadow-sm"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Tu bude web pre mladez PSK .
-          </li>
-          <li className="tracking-[-.01em]">Na webe sa pracuje</li>
-        </ol>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
-    </div>
+      </section>
+
+      {/* Events List */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {filteredEvents.length ? (
+          filteredEvents.map((event) => (
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <EventCard
+                id={event.id}
+                title={event.title}
+                date={event.date?.toDate?.() || event.date}
+                description={event.description}
+              />
+            </motion.div>
+          ))
+        ) : (
+          <p className="col-span-full text-center text-gray-500">
+            No events found.
+          </p>
+        )}
+      </section>
+
+      {/* Facebook Feed */}
+      <section className="mt-20 text-center">
+        <h2 className="text-2xl font-bold mb-4 text-purple-900">
+          📢 Novinky z nášho Facebooku
+        </h2>
+        <div className="flex justify-center">
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Frmpk.po&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            width="500"
+            height="600"
+            style={{ border: "none", overflow: "hidden" }}
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+    </main>
   );
 }
