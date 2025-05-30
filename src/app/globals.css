@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: linear-gradient(to bottom right, #fce7f3, #e9d5ff, #dbeafe);
   --foreground: #171717;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #c084fc;
+}
+.dark input::placeholder {
+  color: #c084fc; /* zinc-400 for better contrast in dark */
+}
+.dark p {
+  color: #f0ebf5; /* zinc-400 for better contrast in dark */
+}
+
+.dark {
+  --background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -14,11 +34,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
     --foreground: #ededed;
   }
 }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
 
 body {
+  background: var(--background);
   color: var(--foreground);
+  transition: background 0.3s ease, color 0.3s ease;
 }
