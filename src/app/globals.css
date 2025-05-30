@@ -4,6 +4,9 @@
   --background: linear-gradient(to bottom right, #fce7f3, #e9d5ff, #dbeafe);
   --foreground: #171717;
 }
+p {
+  color: #070707; /* zinc-400 for better contrast in dark */
+}
 
 .dark h1,
 .dark h2,
@@ -13,8 +16,11 @@
 .dark h6 {
   color: #c084fc;
 }
+input::placeholder {
+  color: #cbb8f2; /* zinc-400 for better contrast in dark */
+}
 .dark input::placeholder {
-  color: #c084fc; /* zinc-400 for better contrast in dark */
+  color: #ebdff8; /* zinc-400 for better contrast in dark */
 }
 .dark p {
   color: #f0ebf5; /* zinc-400 for better contrast in dark */

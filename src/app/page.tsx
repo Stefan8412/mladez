@@ -42,7 +42,7 @@ export default function HomePage() {
         <h1 className="text-4xl sm:text-5xl font-bold text-purple-900 mb-2">
           Mládež PSK - na webe sa pracuje
         </h1>
-        <p className="text-lg text-gray-700 dark:text-gray-300">
+        <p className="text-lg text-purple-700 dark:text-gray-300 ">
           objav udalosť v tvojom okolí...
         </p>
       </motion.div>
@@ -52,7 +52,7 @@ export default function HomePage() {
         <input
           type="text"
           placeholder="vyhľadaj podujatie..."
-          className="border border-purple-300 rounded p-3 w-full shadow-sm text-gray-700"
+          className="border border-purple-300 rounded p-3 w-full shadow-sm "
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -78,7 +78,7 @@ export default function HomePage() {
           ))
         ) : (
           <p className="col-span-full text-center text-gray-500">
-            No events found.
+            žiadne udalosti nájdené.
           </p>
         )}
       </section>
