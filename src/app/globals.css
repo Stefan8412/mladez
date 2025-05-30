@@ -16,6 +16,9 @@ p {
 .dark h6 {
   color: #c084fc;
 }
+.dark nav {
+  color: #c084fc;
+}
 input::placeholder {
   color: #cbb8f2; /* zinc-400 for better contrast in dark */
 }

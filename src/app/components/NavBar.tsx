@@ -11,7 +11,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-transparent px-6 py-4 text-lg font-semibold text-purple-800 dark:text-purple-200">
+    <nav className="bg-transparent px-6 py-4 text-lg font-semibold text-purple-800 ">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
