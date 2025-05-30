@@ -44,10 +44,10 @@ input::placeholder {
     --foreground: #ededed;
   }
 }
-.dark {
+/* .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-}
+} */
 
 body {
   background: var(--background);
