@@ -6,7 +6,9 @@ export default async function EventsPage() {
 
   return (
     <main className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Všetky udalosti</h1>
+      <h1 className="text-3xl font-bold mb-6 text-purple-800">
+        Všetky udalosti
+      </h1>
       <ul className="space-y-4">
         {events.map((event: any) => (
           <li key={event.id} className="border p-4 rounded shadow">

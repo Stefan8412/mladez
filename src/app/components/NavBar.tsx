@@ -4,13 +4,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react"; // uses lucide icons
+import { Menu, X, UserCog } from "lucide-react"; // uses lucide icons
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-transparent px-6 py-4 text-lg font-semibold text-purple-800">
+    <nav className="bg-transparent px-6 py-4 text-lg font-semibold text-purple-800 dark:text-purple-200">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
@@ -41,8 +42,10 @@ export default function NavBar() {
             href="/admin/dashboard"
             className="hover:text-blue-600 transition"
           >
-            Admin
+            <UserCog className="w-5 h-5" />
+            <span className="sr-only">Admin</span>
           </Link>
+          <ThemeToggle />
         </div>
 
         {/* Mobile Menu Button */}
@@ -84,8 +87,12 @@ export default function NavBar() {
             className="block hover:text-blue-600"
             onClick={() => setIsOpen(false)}
           >
-            Admin
+            <UserCog className="w-5 h-5" />
+            <span className="sr-only">Admin</span>
           </Link>
+          <div className="block md:hidden mt-2">
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </nav>

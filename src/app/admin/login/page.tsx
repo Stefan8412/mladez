@@ -21,7 +21,7 @@ export default function AdminLoginPage() {
 
   return (
     <main className="p-4 max-w-sm mx-auto ">
-      <h1 className="text-2xl font-bold mb-4">Admin Login</h1>
+      <h1 className="text-2xl font-bold mb-4 text-purple-800">Admin Login</h1>
       <form onSubmit={handleLogin} className="space-y-4">
         <input
           type="email"

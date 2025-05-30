@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300`}
       >
         <NavBar />
         <main className="flex-grow">{children}</main>

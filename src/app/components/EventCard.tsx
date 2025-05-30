@@ -14,7 +14,7 @@ export default function EventCard({
   description,
 }: EventCardProps) {
   return (
-    <div className="border rounded-xl p-4 shadow-sm hover:shadow-md transition">
+    <div className="border rounded-xl p-4 shadow-sm hover:shadow-md transition ">
       <h3 className="text-xl font-semibold text-purple-800">{title}</h3>
       <p className="text-gray-600 text-sm mb-2">
         {new Date(date).toLocaleDateString()}

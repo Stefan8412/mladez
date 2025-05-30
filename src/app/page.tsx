@@ -42,7 +42,9 @@ export default function HomePage() {
         <h1 className="text-4xl sm:text-5xl font-bold text-purple-900 mb-2">
           Mládež PSK - na webe sa pracuje
         </h1>
-        <p className="text-lg text-gray-700">objav udalosť v tvojom okolí...</p>
+        <p className="text-lg text-gray-700 dark:text-gray-300">
+          objav udalosť v tvojom okolí...
+        </p>
       </motion.div>
 
       {/* Search and Filter */}
