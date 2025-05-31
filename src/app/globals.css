@@ -41,12 +41,12 @@ input::placeholder {
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
     --foreground: #ededed;
   }
-}
+} */
 /* .dark {
   --background: #0a0a0a;
   --foreground: #ededed;

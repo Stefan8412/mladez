@@ -4,7 +4,7 @@ export default async function EventDetailPage({ params }: any) {
   const event = await getEventById(params.eventId);
 
   if (!event) {
-    return <p className="p-4">Event not found</p>;
+    return <p className="p-4">žiadna udalosť</p>;
   }
 
   const date =
