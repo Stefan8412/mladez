@@ -90,7 +90,7 @@ export default function HomePage() {
         </h2>
         <div className="flex justify-center">
           <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Frmpk.po&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fzdruzenie.domka&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
             width="500"
             height="600"
             style={{ border: "none", overflow: "hidden" }}
