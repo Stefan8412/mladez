@@ -40,7 +40,7 @@ export default function HomePage() {
         transition={{ duration: 0.6 }}
       >
         <h1 className="text-4xl sm:text-5xl font-bold text-purple-900 mb-2">
-          Mládež PSK - na webe sa pracuje
+          Mládež PSK
         </h1>
         <p className="text-lg text-purple-700 dark:text-gray-300 ">
           objav udalosť v tvojom okolí...

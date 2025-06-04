@@ -5,7 +5,7 @@
   --foreground: #171717;
 }
 p {
-  color: #070707; /* zinc-400 for better contrast in dark */
+  color: #010101; /* zinc-400 for better contrast in dark */
 }
 
 .dark h1,
@@ -20,7 +20,7 @@ p {
   color: #c084fc;
 }
 input::placeholder {
-  color: #cbb8f2; /* zinc-400 for better contrast in dark */
+  color: #767676; /* zinc-400 for better contrast in dark */
 }
 .dark input::placeholder {
   color: #ebdff8; /* zinc-400 for better contrast in dark */
