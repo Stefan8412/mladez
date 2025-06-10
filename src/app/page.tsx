@@ -88,7 +88,7 @@ export default function HomePage() {
       {/* Facebook Feeds */}
       <section className="mt-20 text-center">
         <h2 className="text-2xl font-bold mb-10 text-purple-900">
-          📢 Novinky z nášho Facebooku a Insta
+          📢 Sociálne siete
         </h2>
         <div className="flex flex-col lg:flex-row justify-center items-center gap-6">
           <InstagramEmbed
