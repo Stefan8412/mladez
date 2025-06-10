@@ -19,18 +19,18 @@ export default function AddOrganizationPage() {
   return (
     <AdminRouteGuard>
       <main className="p-4 max-w-md mx-auto">
-        <h1 className="text-2xl font-bold mb-4">Add Organization</h1>
+        <h1 className="text-2xl font-bold mb-4">Pridaj organizáciu</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            placeholder="Organization Name"
+            placeholder="názov"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full p-2 border rounded"
             required
           />
           <textarea
-            placeholder="Description"
+            placeholder="opis"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full p-2 border rounded"
@@ -38,7 +38,7 @@ export default function AddOrganizationPage() {
           />
           <input
             type="url"
-            placeholder="Website URL"
+            placeholder="webstránka"
             value={website}
             onChange={(e) => setWebsite(e.target.value)}
             className="w-full p-2 border rounded"

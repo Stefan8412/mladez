@@ -12,6 +12,7 @@ export type Event = {
   id: string;
   title: string;
   description: string;
+  website: string;
   date: any; // could refine to Firestore Timestamp if needed
 };
 
@@ -19,6 +20,7 @@ export async function addEvent(event: {
   title: string;
   date: string;
   description: string;
+  website: string;
 }) {
   const docRef = await addDoc(collection(db, "events"), {
     ...event,

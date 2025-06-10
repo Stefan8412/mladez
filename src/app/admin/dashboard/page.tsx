@@ -17,7 +17,7 @@ export default function AdminDashboard() {
     <AdminRouteGuard>
       <main className="p-4 max-w-lg mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold">Administrácia</h1>
           <button
             onClick={handleSignOut}
             className="bg-red-600 text-white px-3 py-1 rounded"
@@ -31,13 +31,13 @@ export default function AdminDashboard() {
             href="/admin/add-event"
             className="block p-4 border rounded hover:bg-gray-100"
           >
-            ➕ Add Event
+            ➕ Pridaj udalosť
           </Link>
           <Link
             href="/admin/add-organization"
             className="block p-4 border rounded hover:bg-gray-100"
           >
-            ➕ Add Organization
+            ➕ Pridaj organizáciu
           </Link>
         </div>
       </main>

@@ -9,10 +9,16 @@ export default function AddEventPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
+  const [website, setWebsite] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await addEvent({ title, description, date: new Date(date).toISOString() });
+    await addEvent({
+      title,
+      description,
+      website,
+      date: new Date(date).toISOString(),
+    });
     router.push("/events");
   };
 
@@ -23,14 +29,14 @@ export default function AddEventPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            placeholder="Event Title"
+            placeholder="Názov"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full p-2 border rounded"
             required
           />
           <textarea
-            placeholder="Description"
+            placeholder="opis"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full p-2 border rounded"
@@ -42,6 +48,13 @@ export default function AddEventPage() {
             onChange={(e) => setDate(e.target.value)}
             className="w-full p-2 border rounded"
             required
+          />
+          <input
+            type="url"
+            placeholder="webstránka"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+            className="w-full p-2 border rounded"
           />
           <button
             type="submit"
