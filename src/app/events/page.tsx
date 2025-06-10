@@ -19,8 +19,7 @@ export default async function EventsPage() {
             <p className="text-gray-600">
               {new Date(event.date.seconds * 1000).toLocaleDateString()}
             </p>
-            <p className="text-gray-700">{event.description}</p>
-            <p className="text-gray-700">{event.website}</p>
+
             <Link
               href={`/events/${event.id}`}
               className="animate-pulse focus:animate-none hover:animate-none inline-flex text-md font-medium bg-indigo-900 mt-3 px-4 py-2 rounded-lg tracking-wide text-white"

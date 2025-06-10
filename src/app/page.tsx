@@ -8,6 +8,12 @@ import { InstagramEmbed } from "react-social-media-embed";
 import { getEvents } from "./lib/firestore";
 import EventCard from "./components/EventCard";
 
+function getFirstTwoSentences(text: string) {
+  const sentences = text.match(/[^.!?]+[.!?]+/g);
+  if (!sentences) return text;
+  return sentences.slice(0, 2).join(" ");
+}
+
 export default function HomePage() {
   const [events, setEvents] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -73,7 +79,7 @@ export default function HomePage() {
                 id={event.id}
                 title={event.title}
                 date={event.date?.toDate?.() || event.date}
-                description={event.description}
+                description={getFirstTwoSentences(event.description)}
               />
             </motion.div>
           ))
