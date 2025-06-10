@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { InstagramEmbed } from "react-social-media-embed";
 
 import { getEvents } from "./lib/firestore";
 import EventCard from "./components/EventCard";
@@ -84,19 +85,29 @@ export default function HomePage() {
       </section>
 
       {/* Facebook Feed */}
+      {/* Facebook Feeds */}
       <section className="mt-20 text-center">
-        <h2 className="text-2xl font-bold mb-4 text-purple-900">
-          📢 Novinky z nášho Facebooku
+        <h2 className="text-2xl font-bold mb-10 text-purple-900">
+          📢 Novinky z nášho Facebooku a Insta
         </h2>
-        <div className="flex justify-center">
-          <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fzdruzenie.domka&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-            width="500"
-            height="600"
-            style={{ border: "none", overflow: "hidden" }}
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-6">
+          <InstagramEmbed
+            url="https://www.instagram.com/dofesk/"
+            width={340}
+            height={500}
+          />
+
+          <InstagramEmbed
+            url="https://www.instagram.com/domka.sk/"
+            width={340}
+            height={500}
+          />
+
+          <InstagramEmbed
+            url="https://www.instagram.com/rmpk__/"
+            width={340}
+            height={500}
+          />
         </div>
       </section>
     </main>
