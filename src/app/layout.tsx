@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import MouseParticlesClient from "./components/MouseParticlesClient";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,6 +30,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300`}
       >
+        <MouseParticlesClient />
+
         <NavBar />
         <main className="flex-grow">{children}</main>
         <Footer />
