@@ -1,10 +1,11 @@
+//@ts-noCheck
 "use client";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { InstagramEmbed } from "react-social-media-embed";
-
+import PowerModeInput from "power-mode-input";
 import { getEvents } from "./lib/firestore";
 
 import EventCard from "./components/EventCard";
