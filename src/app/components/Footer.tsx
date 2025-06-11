@@ -24,12 +24,6 @@ export default async function Footer() {
         <div className="flex items-center gap-4">
           <Link
             className="inline-flex items-center gap-1 transition-colors hover:text-neutral-700"
-            href="https://www.hancar.sk"
-          >
-            @web
-          </Link>
-          <Link
-            className="inline-flex items-center gap-1 transition-colors hover:text-neutral-700"
             href="https://www.instagram.com/stefan_hancar/"
           >
             @stefan

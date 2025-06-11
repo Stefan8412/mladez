@@ -1,23 +1,44 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { InstagramEmbed } from "react-social-media-embed";
-
+import PowerModeInput from "power-mode-input";
 import { getEvents } from "./lib/firestore";
+
 import EventCard from "./components/EventCard";
 
 function getFirstTwoSentences(text: string) {
   const sentences = text.match(/[^.!?]+[.!?]+/g);
   if (!sentences) return text;
-  return sentences.slice(0, 2).join(" ");
+  return sentences.slice(0, 1).join(" ");
 }
 
 export default function HomePage() {
   const [events, setEvents] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredEvents, setFilteredEvents] = useState<any[]>([]);
+  const inputRef = useRef(null);
+  useEffect(() => {
+    if (inputRef.current) {
+      PowerModeInput.make(inputRef.current, {
+        height: 5,
+        tha: [0, 360],
+        g: 0.5,
+        num: 5,
+        radius: 6,
+        circle: true,
+        alpha: [0.75, 0.1],
+        color: "random",
+      });
+    }
+    return () => {
+      if (inputRef.current) {
+        PowerModeInput.destroy();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     getEvents().then((data) => {
@@ -57,11 +78,13 @@ export default function HomePage() {
       {/* Search and Filter */}
       <section className="mb-10 max-w-2xl mx-auto">
         <input
+          ref={inputRef}
           type="text"
           placeholder="vyhľadaj podujatie..."
           className="border border-purple-300 rounded p-3 w-full shadow-sm "
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          data-power-mode
         />
       </section>
 
