@@ -22,6 +22,7 @@
     "react-dom": "^19.0.0",
     "react-mouse-particles": "^1.1.5",
     "react-social-media-embed": "^2.5.18",
+    "recharts": "^2.15.3",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

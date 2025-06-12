@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { InstagramEmbed } from "react-social-media-embed";
 import BubbleCursor from "./components/MouseParticlesClient";
-
+import Poll from "./components/Poll";
 import { getEvents } from "./lib/firestore";
 
 import EventCard from "./components/EventCard";
@@ -118,6 +118,10 @@ export default function HomePage() {
             height={500}
           />
         </div>
+      </section>
+      <section className="mt-20 text-center">
+        <h2 className="text-2xl font-bold mb-10 text-purple-900">Anketa</h2>
+        <Poll pollId="anketa" />
       </section>
     </main>
   );
