@@ -65,9 +65,7 @@ export default function Poll({ pollId }: PollProps) {
 
   return (
     <div className="p-6 border rounded max-w-2xl mx-auto shadow-md ">
-      <h2 className="text-xl font-bold text-purple-900 dark:text-purple-200 mb-6">
-        {question}
-      </h2>
+      <h2 className="text-xl font-bold text-purple-900 ">{question}</h2>
 
       <div className="space-y-3 mb-8">
         {Object.entries(options).map(([key, value]) => (
@@ -77,8 +75,8 @@ export default function Poll({ pollId }: PollProps) {
             disabled={hasVoted}
             className={`w-full text-left px-4 py-2 rounded transition ${
               hasVoted
-                ? "bg-purple-300 dark:bg-purple-700 cursor-not-allowed"
-                : "bg-purple-100 dark:bg-purple-800 hover:bg-purple-200"
+                ? "bg-purple-300  cursor-not-allowed"
+                : "bg-purple-300  hover:bg-purple-200"
             }`}
           >
             {key} ({value} hlasov)
