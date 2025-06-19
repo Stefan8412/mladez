@@ -18,7 +18,7 @@ export default async function Footer() {
             <span aria-label="love" role="img">
               💖
             </span>{" "}
-            in Presov by stefan. All right reserved.{" "}
+            in Presov by me. All right reserved.{" "}
           </p>
         </div>
         <div className="flex items-center gap-4">
